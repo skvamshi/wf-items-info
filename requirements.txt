@@ -1,0 +1,4 @@
+watchdog
+easyocr
+numpy
+pyyaml
