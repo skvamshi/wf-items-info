@@ -1,7 +1,7 @@
 import time
 import logging
 import sys
-from detect_text import process_image
+from detect_text import *
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
@@ -12,8 +12,9 @@ class MyHandler(FileSystemEventHandler):
             path_string = str(event.src_path)
             event_file_name = path_string[path_string.rfind('\\') + 1:]
             if event_file_name.startswith('Warframe'):
-                result_json = process_image(path_string)
-                print(f'event type: {event.event_type}  path : {event.src_path} result: {result_json}')
+                # result_json = process_image(path_string)
+                resp = detect_text_tess(path_string)
+                print(f'event type: {event.event_type}  path : {event.src_path} result: {resp}')
 
 
 if __name__ == "__main__":

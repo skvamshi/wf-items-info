@@ -2,3 +2,4 @@ watchdog
 easyocr
 numpy
 pyyaml
+tesserocr
